@@ -1,0 +1,41 @@
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    versionCatalogs {
+        libs {
+            version('android-plugin', '8.0.0')
+
+            version('android-sdk-compile', 'android-33')
+            version('android-sdk-min', '26')
+            version('android-sdk-target', '33')
+
+            version('androidx-activity', '1.7.1')
+
+            version('java', JavaVersion.VERSION_11.toString())
+
+            version('kotlin', '1.8.20')
+
+            plugin('android-application', 'com.android.application')
+                    .versionRef('android-plugin')
+
+            plugin('kotlin-android', 'org.jetbrains.kotlin.android')
+                    .versionRef('kotlin')
+
+            library('androidx-activity-ktx', 'androidx.activity', 'activity-ktx')
+                    .versionRef('androidx-activity')
+        }
+    }
+}
+
+include(":app")
